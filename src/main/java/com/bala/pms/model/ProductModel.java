@@ -3,14 +3,14 @@ package com.bala.pms.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class ProductModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "product_name" ,nullable = false)
     private String productName;
-    @Column(name = "product_name" , nullable = false)
+    @Column(name = "product_description" , nullable = false)
     private String productDescription;
     @Column(name = "product_price" ,nullable = false)
     private double productPrice;
