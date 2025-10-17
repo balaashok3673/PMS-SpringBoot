@@ -11,6 +11,7 @@ public interface ProductService {
     List<ProductModel> listProduct();
     ProductModel addProduct(ProductModel productModel);
     ProductModel updateProduct(long id , ProductModel updateProduct);
+    public String deleteProduct(long id);
 }
 
 @Service
@@ -41,6 +42,16 @@ class ProductServiceImpl implements ProductService{
         existingProduct.setProductQuantity(updateproduct.getProductQuantity());
 
         return productRepository.save(existingProduct);
+    }
+
+    @Override
+    public String deleteProduct(long id){
+        if (productRepository.existsById(id)){
+            productRepository.deleteById(id);
+            return "Product has been deleted";
+        }else {
+            throw new RuntimeException("product not found");
+        }
     }
 
 
