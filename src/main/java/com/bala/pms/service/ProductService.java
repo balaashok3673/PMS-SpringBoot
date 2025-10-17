@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ProductService {
     List<ProductModel> listProduct();
-    public ProductModel addProduct(ProductModel productModel);
+    ProductModel addProduct(ProductModel productModel);
 
 }
 
@@ -28,7 +28,7 @@ class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    ProductModel addProduct(ProductModel productModel){
+    public ProductModel addProduct(ProductModel productModel){
        return productRepository.save(productModel);
     }
 }
