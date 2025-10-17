@@ -27,4 +27,9 @@ public class ProductController {
     public List<ProductModel> listProduct(){
         return productService.listProduct();
     }
+
+    @PutMapping("/update/{id}")
+    public ProductModel updateProduct(@PathVariable long id , @RequestBody ProductModel productModel){
+        return productService.updateProduct(id , productModel);
+    }
 }
